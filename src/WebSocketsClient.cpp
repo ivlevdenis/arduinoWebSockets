@@ -40,8 +40,9 @@ WebSocketsClient::~WebSocketsClient() {
 void WebSocketsClient::begin(const char *host, uint16_t port, const char * url) {
     _host = host;
     _port = port;
+    #ifdef ESP8266
     _fingerprint = "";
-
+    #endif
     _client.num = 0;
     _client.status = WSC_NOT_CONNECTED;
     _client.tcp = NULL;
